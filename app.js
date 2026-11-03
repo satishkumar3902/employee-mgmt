@@ -31,6 +31,12 @@ app.post("/employees", (req, res) => {
     res.status(201).json(employee);
 });
 
+const login = require("./login");
+
+app.post("/login", (req, res) => {
+    const result = login(req.body.username, req.body.password);
+    res.send(result);
+});
 // Start server
 app.listen(3000, () => {
     console.log("Server running on port 3000");
